@@ -18,47 +18,43 @@
             android:textColor="@color/text_meetingtime"
             android:gravity="center"
             android:text="In 2d 2h"/>
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="right|center_vertical">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icon_meetings_muted"
+                android:layout_marginEnd="3dp"
+                android:id="@+id/icon_pin"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icon_meetings_muted"
+                android:layout_marginEnd="3dp"
+                android:id="@+id/icon_mute"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icon_meetings_muted"
+                android:layout_marginEnd="3dp"
+                android:id="@+id/icon_archive"/>
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="right">
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/icon_mute"
-                    android:layout_marginEnd="3dp"
-                    android:id="@+id/icon_mute"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/icon_mute"
-                    android:layout_marginEnd="3dp"
-                    android:id="@+id/icon_pin"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/icon_mute"
-                    android:layout_marginEnd="3dp"
-                    android:id="@+id/icon_archive"/>
-                <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/event_status_block">
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/event_status_block">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:background="@drawable/itime_round_corner_card_bg_app"
-                        android:id="@+id/event_status_text"
-                        android:textSize="14sp"
-                        android:text="Cancelled"/>
-                </LinearLayout>
+                    android:padding="5dp"
+                    android:background="@drawable/itime_round_corner_card_bg_app"
+                    android:id="@+id/event_status_text"
+                    android:textSize="14sp"
+                    android:text="Cancelled"/>
             </LinearLayout>
-        </FrameLayout>
+        </LinearLayout>
     </FrameLayout>
     <!-- event detail block -->
     <LinearLayout

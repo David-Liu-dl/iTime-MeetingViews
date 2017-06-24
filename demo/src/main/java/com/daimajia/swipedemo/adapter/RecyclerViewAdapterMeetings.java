@@ -2,8 +2,6 @@ package com.daimajia.swipedemo.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
-import android.support.annotation.Dimension;
-import android.support.v4.media.RatingCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -206,6 +204,11 @@ public class RecyclerViewAdapterMeetings extends RecyclerSwipeAdapter<RecyclerVi
         TextView updatedTimeText;
         TextView titleText;
         TextView gratingText;
+        //card - status
+        ImageView iconPin;
+        ImageView iconMute;
+        ImageView iconArchive;
+        TextView eventStatus;
         //event status components
         TextView label1;
         TextView value1;
@@ -235,6 +238,11 @@ public class RecyclerViewAdapterMeetings extends RecyclerSwipeAdapter<RecyclerVi
             updatedTimeText = (TextView) itemView.findViewById(R.id.updated_time_text);
             titleText = (TextView) itemView.findViewById(R.id.title_text);
             gratingText = (TextView) itemView.findViewById(R.id.grating_text);
+            //card - status
+            iconPin = (ImageView) itemView.findViewById(R.id.icon_pin);
+            iconMute = (ImageView) itemView.findViewById(R.id.icon_mute);
+            iconArchive = (ImageView) itemView.findViewById(R.id.icon_archive);
+            eventStatus = (TextView) itemView.findViewById(R.id.event_status_text);
             //event status components
             label1 = (TextView) itemView.findViewById(R.id.label_1);
             label2 = (TextView) itemView.findViewById(R.id.label_2);
@@ -329,6 +337,13 @@ public class RecyclerViewAdapterMeetings extends RecyclerSwipeAdapter<RecyclerVi
             case HOSTING_DETAILS:{
                 HostingDetailsViewHolder holder = (HostingDetailsViewHolder) viewHolder;
                 holder.position = position;
+                //set event status
+                GradientDrawable eventStatusDrawable = (GradientDrawable) holder.eventStatus.getBackground();
+                eventStatusDrawable.mutate();
+                eventStatusDrawable.setColor(holder.itemView.getContext().getResources().getColor(R.color.brightBlue));
+                eventStatusDrawable.invalidateSelf();
+                holder.eventStatus.setTextColor(holder.itemView.getContext().getResources().getColor(R.color.white));
+                //set event info
                 holder.label1.setText("Voted");
                 holder.label2.setText("Can't go");
                 holder.label3.setText("No reply");
