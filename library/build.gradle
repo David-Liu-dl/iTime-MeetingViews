@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'signing'
 
 android {
     compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
@@ -17,10 +19,36 @@ dependencies {
 apply from: './gradle-mvn-push.gradle'
 
 // build a jar with source files
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
+//task sourcesJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    classifier = 'sources'
+//}
+//artifacts {
+//    archives sourcesJar
+//}
+
+signing {
+    required { gradle.taskGraph.hasTask("uploadArchives") }
+    sign configurations.archives
 }
-artifacts {
-    archives sourcesJar
+//
+uploadArchives {
+    configuration = configurations.archives
+
+    repositories.mavenDeployer {
+        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+        repository(url: 'http://maven.timegenii.com/repository/swipper/') {
+            authentication(userName: 'admin', password: 'admin123')
+        }
+
+        pom.project {
+            version '1.0.1'
+            artifactId 'swipper'
+            groupId 'com.unimelb.itime'
+            packaging 'aar'
+            url 'http://maven.timegenii.com/repository/swipper/'
+            description 'dependences lib'
+        }
+    }
 }

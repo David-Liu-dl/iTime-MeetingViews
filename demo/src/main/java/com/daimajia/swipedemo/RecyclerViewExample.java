@@ -24,7 +24,7 @@ public class RecyclerViewExample extends Activity {
 
     /**
      * RecyclerView: The new recycler view replaces the list view. Its more modular and therefore we
-     * must implement some of the functionality ourselves and attach it to our recyclerview.
+     * must implement some of the functionality ourselves and attach it to our meeting_recyclerview.
      * <p/>
      * 1) Position items on the screen: This is done with LayoutManagers
      * 2) Animate & Decorate views: This is done with ItemAnimators & ItemDecorators
@@ -39,7 +39,7 @@ public class RecyclerViewExample extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recyclerview);
+        setContentView(R.layout.meeting_recyclerview);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             ActionBar actionBar = getActionBar();

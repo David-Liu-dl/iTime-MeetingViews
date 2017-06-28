@@ -5,6 +5,8 @@
     android:layout_width="wrap_content"
     android:orientation="horizontal"
     android:background="@android:color/transparent"
+    android:paddingStart="0dp"
+    android:paddingEnd="@dimen/card_margin"
     android:layout_height="match_parent">
 
     <LinearLayout

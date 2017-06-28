@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="@drawable/itime_round_corner_card_bg_app"
+    android:background="@drawable/itime_round_corner_card_bg_bordered"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="18dp">
@@ -49,7 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:background="@drawable/itime_round_corner_card_bg_app"
+                    android:background="@drawable/itime_round_corner_card_bg_bordered"
                     android:id="@+id/event_status_text"
                     android:textSize="14sp"
                     android:text="Cancelled"/>
@@ -68,6 +68,8 @@
             android:gravity="center"
             android:textStyle="bold"
             android:textSize="19sp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:id="@+id/title_text"
             android:text="Telstra Competition Discussion"/>
 
@@ -84,9 +86,9 @@
     <!-- dash line -->
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="5dp"
+        android:layout_height="1dp"
         android:layout_marginTop="18dp"
-        android:src="@drawable/meeting_card_dash"
+        android:src="@drawable/itime_meeting_card_dash"
         android:layerType="software" />
     <!-- event status bar -->
     <LinearLayout

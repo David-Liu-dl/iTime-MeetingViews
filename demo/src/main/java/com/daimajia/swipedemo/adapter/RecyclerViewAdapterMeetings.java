@@ -24,7 +24,7 @@ public class RecyclerViewAdapterMeetings extends RecyclerSwipeAdapter<RecyclerVi
         int position = 0;
 
         SwipeLayout swipeLayout;
-        View infoBlock;
+        View leftStatusBar;
         //menu
         View pin;
         View mute;
@@ -51,7 +51,7 @@ public class RecyclerViewAdapterMeetings extends RecyclerSwipeAdapter<RecyclerVi
 
         private void initViews(){
             swipeLayout = (SwipeLayout) itemView.findViewById(R.id.swipe);
-            infoBlock = itemView.findViewById(R.id.info_container);
+            leftStatusBar = itemView.findViewById(R.id.status_bar);
             //menu
             pin = itemView.findViewById(R.id.pin_btn);
             mute = itemView.findViewById(R.id.mute_btn);
@@ -99,15 +99,15 @@ public class RecyclerViewAdapterMeetings extends RecyclerSwipeAdapter<RecyclerVi
         }
 
         private void initBg(){
-            GradientDrawable containerDrawable = (GradientDrawable) container.getBackground();
-            containerDrawable.mutate();
-            containerDrawable.setColor(itemView.getContext().getResources().getColor(R.color.brightBlue));
-
-            float cornerDim = itemView.getContext().getResources().getDimension(R.dimen.card_radius);
-            GradientDrawable infoBgDrawable = (GradientDrawable) infoBlock.getBackground();
-            infoBgDrawable.mutate();
-            infoBgDrawable.setCornerRadii(new float[]{0f,0f,cornerDim,cornerDim,cornerDim,cornerDim,0f,0f});
-            infoBgDrawable.invalidateSelf();
+            GradientDrawable statusBarDrawable = (GradientDrawable) leftStatusBar.getBackground();
+            statusBarDrawable.mutate();
+            statusBarDrawable.setColor(itemView.getContext().getResources().getColor(R.color.brightBlue));
+//
+//            float cornerDim = itemView.getContext().getResources().getDimension(R.dimen.card_radius);
+//            GradientDrawable infoBgDrawable = (GradientDrawable) infoBlock.getBackground();
+//            infoBgDrawable.mutate();
+//            infoBgDrawable.setCornerRadii(new float[]{0f,0f,cornerDim,cornerDim,cornerDim,cornerDim,0f,0f});
+//            infoBgDrawable.invalidateSelf();
         }
     }
 
@@ -299,17 +299,17 @@ public class RecyclerViewAdapterMeetings extends RecyclerSwipeAdapter<RecyclerVi
 
         switch (viewType){
             case INVITATION_DETAILS:{
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.inviation_item_detailed, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.meeting_inviation_item_detailed, parent, false);
                 holder = new InvitationDetailsViewHolder(view);
                 break;
             }
             case INVITATION_MESSAGE:{
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.inviation_item_message, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.meeting_inviation_item_message, parent, false);
                 holder = new InvitationMessageViewHolder(view);
                 break;
             }
             case HOSTING_DETAILS:{
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.hosting_item, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.meeting_hosting_item, parent, false);
                 holder = new HostingDetailsViewHolder(view);
                 break;
             }

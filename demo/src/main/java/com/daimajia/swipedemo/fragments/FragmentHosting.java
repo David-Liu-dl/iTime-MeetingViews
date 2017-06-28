@@ -34,7 +34,7 @@ public class FragmentHosting extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.recyclerview, container, false);
+        View view = inflater.inflate(R.layout.meeting_recyclerview, container, false);
         context = getContext();
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);

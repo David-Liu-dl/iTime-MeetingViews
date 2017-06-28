@@ -108,6 +108,7 @@ public class SwipeLayout extends FrameLayout {
         }
         int ordinal = a.getInt(R.styleable.SwipeLayout_show_mode, ShowMode.PullOut.ordinal());
         mShowMode = ShowMode.values()[ordinal];
+        mSwipeEnabled = a.getBoolean(R.styleable.SwipeLayout_swipeEnable, true);
         a.recycle();
 
     }
