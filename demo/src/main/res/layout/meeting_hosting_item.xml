@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/swipe"
         app:clickToClose="true"
-        app:swipeEnable="false"
+        app:swipeEnabled="false"
         >
 
         <include layout="@layout/meeting_menu_1"

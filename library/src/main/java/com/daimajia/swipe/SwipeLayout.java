@@ -93,6 +93,7 @@ public class SwipeLayout extends FrameLayout {
         mEdgeSwipesOffset[DragEdge.Top.ordinal()] = a.getDimension(R.styleable.SwipeLayout_topEdgeSwipeOffset, 0);
         mEdgeSwipesOffset[DragEdge.Bottom.ordinal()] = a.getDimension(R.styleable.SwipeLayout_bottomEdgeSwipeOffset, 0);
         setClickToClose(a.getBoolean(R.styleable.SwipeLayout_clickToClose, mClickToClose));
+        setSwipeEnabled(a.getBoolean(R.styleable.SwipeLayout_swipeEnabled, mSwipeEnabled));
 
         if ((dragEdgeChoices & DRAG_LEFT) == DRAG_LEFT) {
             mDragEdges.put(DragEdge.Left, null);
@@ -108,7 +109,6 @@ public class SwipeLayout extends FrameLayout {
         }
         int ordinal = a.getInt(R.styleable.SwipeLayout_show_mode, ShowMode.PullOut.ordinal());
         mShowMode = ShowMode.values()[ordinal];
-        mSwipeEnabled = a.getBoolean(R.styleable.SwipeLayout_swipeEnable, true);
         a.recycle();
 
     }
@@ -998,8 +998,8 @@ public class SwipeLayout extends FrameLayout {
         this.mClickToClose = mClickToClose;
     }
 
-    public void setSwipeEnabled(boolean enabled) {
-        mSwipeEnabled = enabled;
+    public void setSwipeEnabled(boolean mSwipeEnabled) {
+        this.mSwipeEnabled = mSwipeEnabled;
     }
 
     public boolean isSwipeEnabled() {
